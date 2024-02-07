@@ -10,98 +10,163 @@
 
     <title>Home Page</title>
     <style media="screen">
-    *,
-    *:before,
-    *:after{
-        padding: 0;
-        margin: 0;
-        box-sizing: border-box;
+      *,
+      *:before,
+      *:after{
+          padding: 0;
+          margin: 0;
+          box-sizing: border-box;
+      }
+      body{
+          background-color: #212121;
+      }
+
+      .topnav {
+        background-color: #212121;
+        overflow: hidden;
     }
-    body{
-        background-color: #080710;
-    }
-    .container{
-      align-items: center;
-      justify-content: center;
+    
+    /* Style the links inside the navigation bar */
+    .topnav a {
+      float: left;
+      color: #f2f2f2;
       text-align: center;
-      font-weight: 900;
-      font-size: 30px;
-      color: rgb(16, 137, 211);
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
     }
-    h1{
-      height: auto;
-      width: auto;
-      background-color: rgba(255,255,255,0.13);
-      position: absolute;
-      transform: translate(-50%,-50%);
-      top: 5%;
-      left: 10%;
-      border-radius: 10px;
-      backdrop-filter: blur(10px);
-      border: 2px solid rgba(255,255,255,0.1);
-      box-shadow: 0 0 40px rgba(8,7,16,0.6);
-      padding: 50px 35px;
-  }
-  a{
-    top: 5%;
-    right: 80%;
-    border-radius: 10px;
-  }
-  .shape{
-        height: 100px;
-        width: 100px;
-        position: absolute;
-        border-radius: 50%;
+    
+    /* Change the color of links on hover */
+    .topnav a:hover {
+      background-color: #ddd;
+      color: black;
     }
-  .shape:first-child{
-        background: linear-gradient(
-            #1845ad,
-            #23a2f6
-        );
-        left: -80px;
-        top: -60px;
+    
+    /* Add a color to the active/current link */
+    .topnav a.active {
+      background-color: rgb(3, 170, 170);   
+      {% comment %} #04AA6D; {% endcomment %}
+      color: white;
     }
-  .shape:second-child{
-      background: linear-gradient(
-          #1845ad,
-          #23a2f6
-      );
-      left: -80px;
-      top: -60px;
+    
+    /* Right-aligned section inside the top navigation */
+    .topnav-right {
+      float: right;
+      background-color: rgb(3, 170, 170); 
+      color:rgb(3, 170, 170)
+    }
+
+      
+   #page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+#h3 {
+  {% comment %} color: rgb(82, 79, 79); {% endcomment %}
+  text-align: center;
+  font-weight: 700;
+  font-size: 18px;
+  color: rgb(16, 137, 211);
+}
+
+#ring {
+  width: 190px;
+  height: 190px;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  position: absolute;
+}
+
+#ring:nth-child(1) {
+  border-bottom: 8px solid rgb(240, 42, 230);
+  animation: rotate1 2s linear infinite;
+}
+
+@keyframes rotate1 {
+  from {
+    transform: rotateX(50deg) rotateZ(110deg);
   }
-  .shape:last-child{
-        background: linear-gradient(
-            to right,
-            #ff512f,
-            #f09819
-        );
-        right: -30px;
-        bottom: -70px;
-    } 
- 
-    {% comment %} form *{
-        font-family: 'Poppins',sans-serif;
-        color: #ffffff;
-        letter-spacing: 0.5px;
-        outline: none;
-        border: none;
-    } {% endcomment %}
+
+  to {
+    transform: rotateX(50deg) rotateZ(470deg);
+  }
+}
+
+#ring:nth-child(2) {
+  border-bottom: 8px solid rgb(240, 19, 67);
+  animation: rotate2 2s linear infinite;
+}
+
+@keyframes rotate2 {
+  from {
+    transform: rotateX(20deg) rotateY(50deg) rotateZ(20deg);
+  }
+
+  to {
+    transform: rotateX(20deg) rotateY(50deg) rotateZ(380deg);
+  }
+}
+
+#ring:nth-child(3) {
+  border-bottom: 8px solid rgb(3, 170, 170);
+  animation: rotate3 2s linear infinite;
+}
+
+@keyframes rotate3 {
+  from {
+    transform: rotateX(40deg) rotateY(130deg) rotateZ(450deg);
+  }
+
+  to {
+    transform: rotateX(40deg) rotateY(130deg) rotateZ(90deg);
+  }
+}
+
+#ring:nth-child(4) {
+  border-bottom: 8px solid rgb(207, 135, 1);
+  animation: rotate4 2s linear infinite;
+}
+
+@keyframes rotate4 {
+  from {
+    transform: rotateX(70deg) rotateZ(270deg);
+  }
+
+  to {
+    transform: rotateX(70deg) rotateZ(630deg);
+  }
+}
+/* Improving visualization in light mode */
   </style>
   </head>
   <body>
-    <h1>Home Page</h1>
-    <div class="shape"></div>
-    <div class="shape"></div>
-    <div class="container">
-
-    </h3> BIENVENUE </h3>
-
-    <a href="{% url 'logout' %}" class="btn btn-primary">Logout</a>
-
-    {% comment %} <div class="shape"></div>
-    <div class="shape"></div> {% endcomment %}
+    <div class="topnav">
+      <a class="active" href="{% url 'home' %} ">Home Page</a>
+      <div class="topnav-right">
+        <a href="{% url 'logout' %}" class="btn btn-primary">Logout</a>
+        <a href="#about">About</a>
+      </div>
     </div>
-    <div class="shape"></div>
+    <div ><h1> </h1></div>
+    <h1> </h1>
+    <div id="page">
+      <div id="container">
+          <div id="ring"></div>
+          <div id="ring"></div>
+          <div id="ring"></div>
+          <div id="ring"></div>
+          <div id="h3">WELCOME,{{ user.username }}.</div>
+      </div>
+</div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
