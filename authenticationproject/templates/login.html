@@ -95,10 +95,29 @@ justify-content: center;
   margin-left: 10px;
 }
 
-.form .forgot-password a {
+.form .resetb {
   font-size: 11px;
+  width: 40%;
   color: #0099ff;
-  text-decoration: none;
+  text-decoration:none;
+  font-weight: bold;
+  color: white;
+  padding-block: 15px;
+  {% comment %} margin: 20px auto; {% endcomment %}
+  background: linear-gradient(45deg, rgb(0, 0, 0) 0%, rgb(112, 112, 112) 100%);
+  border-radius: 20px;
+  box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 20px 10px -15px;
+  border: none;
+  transition: all 0.2s ease-in-out;
+}
+.form .resetb:hover {
+  transform: scale(1.03);
+  box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 23px 10px -20px;
+}
+
+.form .resetb:active {
+  transform: scale(0.95);
+  box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 15px 10px -10px;
 }
 
 .form .login-button {
@@ -191,7 +210,8 @@ justify-content: center;
             {% csrf_token %} 
             <input required="" class="input" type="text" id="username" name="username"placeholder="Username">
             <input required="" class="input" type="password" name="pass" id="password" placeholder="Password">
-            <span class="forgot-password"><a href="#">Forgot Password ?</a></span>
+            {% comment %} <span class="forgot-password"><a href="#">Forgot Password ?</a></span> {% endcomment %}
+            <input class="resetb"type="reset" value="Reset">
             {% comment %} <input class="login-button" type="submit" value="Sign In"> {% endcomment %}
             <button class="login-button"type="submit">Log In</button>
             <a class='creat'href="{% url 'signup' %}" >Create a account</a>

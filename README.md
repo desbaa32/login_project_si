@@ -12,15 +12,15 @@ it Class project for making a secure login page .I use a framework of python :Dj
 1.You must have python and use the package manager [pip](https://pip.pypa.io/en/stable/) to install Django.
 
 ```bash
-pip install foobar
+pip install django
 ```
 
 ## Usage
 
-Open the project and execute the next commande in authenticationproject directory:
+Open the project and execute the next command in authenticationproject directory:
 
 ```bash
-python manage.py runserver foobar
+python manage.py runserver
 ```
 
 ## Additionnal Information
